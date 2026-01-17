@@ -1,0 +1,216 @@
+:root {
+    --md-sys-color-primary: #EA4335;
+    --md-sys-color-on-primary: #FFFFFF;
+    --md-sys-color-surface: #FFFFFF;
+    --md-sys-color-background: #F1F3F4;
+    --md-sys-color-on-surface: #202124;
+    --md-sys-color-outline: #747775;
+    --md-sys-elevation-1: 0 1px 2px rgba(0,0,0,0.3), 0 1px 3px 1px rgba(0,0,0,0.15);
+    --md-sys-elevation-3: 0 1px 3px rgba(0,0,0,0.3), 0 4px 8px 3px rgba(0,0,0,0.15);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: var(--md-sys-color-background);
+    color: var(--md-sys-color-on-surface);
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Views Management */
+.view {
+    display: none;
+    height: 100%;
+    width: 100%;
+}
+.view.active {
+    display: flex; /* or block */
+    flex-direction: column;
+}
+
+/* Login View */
+#login-view {
+    align-items: center;
+    justify-content: center;
+}
+
+.login-card {
+    background: var(--md-sys-color-surface);
+    padding: 48px;
+    border-radius: 28px;
+    box-shadow: var(--md-sys-elevation-1);
+    text-align: center;
+    max-width: 400px;
+}
+
+.login-card h1 {
+    font-size: 24px;
+    margin-bottom: 16px;
+    color: var(--md-sys-color-primary);
+}
+
+.btn-primary {
+    background-color: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
+    border: none;
+    padding: 10px 24px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: box-shadow 0.2s;
+    margin-top: 24px;
+}
+
+.btn-primary:hover {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Dashboard View */
+.app-bar {
+    background: var(--md-sys-color-surface);
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: var(--md-sys-elevation-1);
+    z-index: 10;
+}
+
+.search-container {
+    background: var(--md-sys-color-background);
+    border-radius: 24px;
+    padding: 4px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+    max-width: 800px; /* Limit search bar width */
+}
+
+.search-container input {
+    border: none;
+    background: transparent;
+    outline: none;
+    padding: 8px;
+    font-size: 16px;
+    flex: 1;
+}
+
+.btn-icon {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    color: var(--md-sys-color-on-surface);
+}
+.btn-icon:hover {
+    background-color: rgba(0,0,0,0.05);
+}
+
+.btn-text {
+    background: transparent;
+    border: 1px solid var(--md-sys-color-outline);
+    color: var(--md-sys-color-primary);
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.btn-text:hover {
+    background-color: rgba(234, 67, 53, 0.08); /* Primary color with low opacity */
+}
+
+.content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+}
+
+.table-container {
+    background: var(--md-sys-color-surface);
+    border-radius: 16px;
+    overflow: hidden; /* For rounded corners */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    text-align: left;
+    padding: 12px 16px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+th {
+    font-weight: 500;
+    color: var(--md-sys-color-outline);
+    font-size: 14px;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+    cursor: pointer;
+}
+
+/* Detail Panel */
+.detail-panel {
+    position: fixed;
+    top: 0;
+    right: -600px; /* Hidden */
+    width: 600px;
+    height: 100%;
+    background: var(--md-sys-color-surface);
+    box-shadow: var(--md-sys-elevation-3);
+    z-index: 100;
+    transition: right 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-panel.open {
+    right: 0;
+}
+
+.detail-header {
+    padding: 16px;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.detail-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 24px;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 50;
+    display: none;
+}
+.overlay.visible {
+    display: block;
+}

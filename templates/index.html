@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G-Thread Finder</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Login View -->
+    <div id="login-view" class="view active">
+        <div class="login-card">
+            <h1>G-Thread Finder</h1>
+            <p>Connect securely with Gmail to browse conversation history.</p>
+            <button id="login-btn" class="btn-primary">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google G"
+                    width="20">
+                Sign in with Google
+            </button>
+        </div>
+    </div>
+
+    <!-- Dashboard View -->
+    <div id="dashboard-view" class="view">
+        <header class="app-bar">
+            <div class="search-container">
+                <span class="material-icons">search</span>
+                <input type="text" id="recipient-input" placeholder="Recipient Email (e.g. boss@company.com)">
+                <input type="text" id="keyword-input" placeholder="Keyword (Optional)">
+                <button id="search-btn" class="btn-icon"><span class="material-icons">arrow_forward</span></button>
+            </div>
+            <div style="display: flex; gap: 8px;">
+                <button id="copy-all-btn" class="btn-text">
+                    <span class="material-icons">content_copy</span> Copy History
+                </button>
+                <button id="logout-btn" class="btn-text" style="color: #5f6368; border-color: #dadce0;">
+                    <span class="material-icons">logout</span>
+                </button>
+            </div>
+        </header>
+
+        <main class="content">
+            <div class="table-container">
+                <table id="results-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Subject</th>
+                            <th>Snippet</th>
+                        </tr>
+                    </thead>
+                    <tbody id="results-body">
+                        <!-- Rows injected here -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+
+        <!-- Detail Modal/Slide-over -->
+        <div id="detail-panel" class="detail-panel">
+            <div class="detail-header">
+                <button id="close-detail" class="btn-icon"><span class="material-icons">close</span></button>
+                <button id="copy-msg-btn" class="btn-text">Copy Content</button>
+            </div>
+            <div id="detail-content" class="detail-content">
+                <!-- Email body injected here -->
+            </div>
+        </div>
+        <div id="overlay" class="overlay"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+
+</html>

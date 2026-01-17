@@ -1,0 +1,14 @@
+G-Thread Finder - Instrucciones
+
+1. Requisito Importante: CREDENTIALS.JSON
+   Para que la aplicación pueda conectarse a Google, necesitas un archivo "credentials.json".
+   - Entra a Google Cloud Console.
+   - Crea un proyecto y habilita la "Gmail API".
+   - Crea credenciales OAuth 2.0 (Aplicación de escritorio).
+   - Descarga el JSON y renómbralo a "credentials.json".
+   - COLOCA "credentials.json" EN LA MISMA CARPETA QUE EL .EXE.
+
+2. Ejecución
+   - Doble clic en GThreadFinder.exe.
+   - Se abrirá la ventana de la aplicación.
+   - Pulsa "Sign in with Google" y autentícate en el navegador.
